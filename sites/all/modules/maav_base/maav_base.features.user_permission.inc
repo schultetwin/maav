@@ -185,6 +185,15 @@ function maav_base_user_default_permissions() {
     'module' => 'og',
   );
 
+  // Exported permission: administer menu
+  $permissions['administer menu'] = array(
+    'name' => 'administer menu',
+    'roles' => array(
+      0 => 'administrator',
+    ),
+    'module' => 'menu',
+  );
+
   // Exported permission: administer modules
   $permissions['administer modules'] = array(
     'name' => 'administer modules',
