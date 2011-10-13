@@ -26,7 +26,7 @@ function maav_base_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '0',
+    'weight' => '-50',
   );
   // Exported menu link: menu-sidebar-nav:node/3
   $menu_links['menu-sidebar-nav:node/3'] = array(
@@ -44,7 +44,7 @@ function maav_base_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '23',
+    'weight' => '-47',
   );
   // Exported menu link: menu-sidebar-nav:node/4
   $menu_links['menu-sidebar-nav:node/4'] = array(
@@ -58,7 +58,7 @@ function maav_base_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '10',
+    'weight' => '-48',
   );
   // Translatables
   // Included for use with string extractors like potx.
