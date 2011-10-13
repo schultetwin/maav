@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the MAAV Media feature.
+ */
+
+include_once('maav_media.features.inc');
