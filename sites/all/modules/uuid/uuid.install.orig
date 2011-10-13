@@ -184,14 +184,3 @@ function uuid_update_7100() {
 function uuid_update_7101() {
   drupal_flush_all_caches();
 }
-
-/**
- * Create uuid_files table.
- */
-function uuid_update_6006() {
-  $ret = array();
-
-  db_create_table($ret, 'uuid_files', uuid_table_schema('files', 'fid'));
-
-  return $ret;
-}
