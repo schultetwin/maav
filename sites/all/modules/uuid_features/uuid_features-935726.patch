@@ -1,0 +1,20 @@
+Index: includes/uuid_node.features.inc
+===================================================================
+RCS file: /cvs/drupal-contrib/contributions/modules/uuid_features/includes/uuid_node.features.inc,v
+retrieving revision 1.1.2.3
+diff -u -p -w -r1.1.2.3 uuid_node.features.inc
+--- includes/uuid_node.features.inc	7 Jan 2011 20:31:53 -0000	1.1.2.3
++++ includes/uuid_node.features.inc	1 Feb 2011 21:37:11 -0000
+@@ -40,7 +40,12 @@ function uuid_node_features_export($data
+     $node = node_get_by_uuid($uuid);
+ 
+     $export['features']['uuid_node'][$uuid] = $uuid;
++
++    // Add the node type to the pipe if not already provided by another feature.
++    $map = features_get_default_map('node');
++    if (!isset($map) || !isset($map[$node->type])) {
+     $pipe['node'][$node->type] = $node->type;
++    }
+ 
+     // drupal_alter() normally supports just one byref parameter. Using
+     // the __drupal_alter_by_ref key, we can store any additional parameters

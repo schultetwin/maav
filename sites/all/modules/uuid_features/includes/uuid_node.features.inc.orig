@@ -41,12 +41,7 @@ function uuid_node_features_export($data, &$export, $module_name = '') {
     $node = node_load($nid, NULL, TRUE);
 
     $export['features']['uuid_node'][$uuid] = $uuid;
-
-    // Add the node type to the pipe if not already provided by another feature.
-    $map = features_get_default_map('node');
-    if (!isset($map) || !isset($map[$node->type])) {
     $pipe['node'][$node->type] = $node->type;
-    }
 
     // drupal_alter() normally supports just one byref parameter. Using
     // the __drupal_alter_by_ref key, we can store any additional parameters
