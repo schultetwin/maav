@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * maav_base.features.uuid_node.inc
+ * maav_content.features.uuid_node.inc
  */
 
 /**
  * Implements hook_uuid_features_default_content().
  */
-function maav_base_uuid_features_default_content() {
+function maav_content_uuid_features_default_content() {
   $nodes = array();
 
   $nodes[] = array(
@@ -18,14 +18,12 @@ function maav_base_uuid_features_default_content() {
   'comment' => '1',
   'promote' => '0',
   'sticky' => '0',
-  'vuuid' => '',
   'type' => 'page',
   'language' => 'und',
   'created' => '1318473094',
   'tnid' => '0',
   'translate' => '0',
-  'uuid' => '1af2f5e1-bda8-07a4-4923-6b7d4c9de3d1',
-  'revision_uid' => '0',
+  'revision_uid' => '1',
   'body' => array(
     'und' => array(
       0 => array(
@@ -119,14 +117,12 @@ http://iarc.angel-strike.com',
   'comment' => '1',
   'promote' => '0',
   'sticky' => '0',
-  'vuuid' => '',
   'type' => 'page',
   'language' => 'und',
   'created' => '1318473895',
   'tnid' => '0',
   'translate' => '0',
-  'uuid' => '2ca26f7f-dcf9-28b4-8938-019b2eb3719b',
-  'revision_uid' => '0',
+  'revision_uid' => '1',
   'body' => array(
     'und' => array(
       0 => array(
@@ -277,14 +273,12 @@ http://iarc.angel-strike.com',
   'comment' => '1',
   'promote' => '0',
   'sticky' => '0',
-  'vuuid' => '',
   'type' => 'page',
   'language' => 'und',
   'created' => '1318473204',
   'tnid' => '0',
   'translate' => '0',
-  'uuid' => '4910fa1d-e879-29c4-991b-78fef6ed6f0f',
-  'revision_uid' => '0',
+  'revision_uid' => '1',
   'body' => array(
     'und' => array(
       0 => array(
@@ -386,14 +380,12 @@ David Wilemski <a href="mailto:dtwilems@umich.edu">dtwilems@umich.edu</a></p>
   'comment' => '1',
   'promote' => '0',
   'sticky' => '0',
-  'vuuid' => '',
   'type' => 'page',
   'language' => 'und',
   'created' => '1318472865',
   'tnid' => '0',
   'translate' => '0',
-  'uuid' => '60c6438d-baf0-4b04-45c2-09af5a5e27df',
-  'revision_uid' => '0',
+  'revision_uid' => '1',
   'body' => array(
     'und' => array(
       0 => array(
