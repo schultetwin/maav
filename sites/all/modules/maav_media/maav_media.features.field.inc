@@ -125,14 +125,14 @@ function maav_media_field_default_fields() {
         'settings' => array(
           'allowed_schemes' => array(
             'public' => 'public',
+            'vimeo' => 'vimeo',
           ),
           'allowed_types' => array(
             'audio' => 0,
             'default' => 0,
             'image' => 'image',
-            'video' => 0,
+            'video' => 'video',
           ),
-          'file_extensions' => 'jpg jpeg gif png txt doc xls pdf ppt pps odt ods odp mp3 mov m4v mp4 mpeg avi ogg wmv ico',
           'progress_indicator' => 'throbber',
         ),
         'type' => 'media_generic',

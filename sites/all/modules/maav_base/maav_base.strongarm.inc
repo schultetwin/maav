@@ -13,20 +13,6 @@ function maav_base_strongarm() {
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'additional_settings__active_tab_page';
-  $strongarm->value = 'edit-menu';
-  $export['additional_settings__active_tab_page'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'admin_theme';
-  $strongarm->value = 'seven';
-  $export['admin_theme'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'comment_anonymous_page';
   $strongarm->value = 0;
   $export['comment_anonymous_page'] = $strongarm;
@@ -219,13 +205,6 @@ function maav_base_strongarm() {
     'favicon_upload' => '',
   );
   $export['theme_settings'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'update_last_check';
-  $strongarm->value = 1318559485;
-  $export['update_last_check'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
