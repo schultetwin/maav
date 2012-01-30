@@ -17,7 +17,7 @@ function maav_media_views_default_views() {
   $view->base_table = 'node';
   $view->human_name = 'gallery';
   $view->core = 7;
-  $view->api_version = '3.0-alpha1';
+  $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Master */
@@ -31,6 +31,7 @@ function maav_media_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['style_plugin'] = 'grid';
+  $handler->display->display_options['style_options']['grouping'] = '';
   $handler->display->display_options['style_options']['fill_single_line'] = 1;
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Field: Content: Media */
@@ -60,6 +61,7 @@ function maav_media_views_default_views() {
   $handler->display->display_options['fields']['field_media_media']['settings'] = array(
     'file_view_mode' => 'media_preview',
   );
+  $handler->display->display_options['fields']['field_media_media']['group_column'] = 'fid';
   $handler->display->display_options['fields']['field_media_media']['field_api_classes'] = 0;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
