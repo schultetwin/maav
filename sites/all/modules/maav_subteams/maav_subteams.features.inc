@@ -22,9 +22,9 @@ function maav_subteams_node_info() {
     'sub_team' => array(
       'name' => t('Sub Team'),
       'base' => 'node_content',
-      'description' => t('A sub team is a group on the site.'),
+      'description' => t('A sub team is a group on MAAV that work on a specific project.'),
       'has_title' => '1',
-      'title_label' => t('Team'),
+      'title_label' => t('Team Name'),
       'help' => '',
     ),
   );
