@@ -1,5 +1,4 @@
 <?php
-// $Id$
 
 /**
  * @file
@@ -41,7 +40,7 @@
      */
     $div_close = '';
     ?>
-    <?php for ($i = 1; $i < $depth; $i++) : ?>
+    <?php for ($i = 1; $i < $depth; $i++): ?>
       <div class="section-<?php print $i; ?>">
       <?php $div_close .= '</div>'; ?>
     <?php endfor; ?>

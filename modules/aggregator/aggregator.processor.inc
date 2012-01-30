@@ -1,5 +1,4 @@
 <?php
-// $Id$
 
 /**
  * @file
@@ -38,6 +37,9 @@ function aggregator_aggregator_process($feed) {
         if (!$item['timestamp']) {
           $item['timestamp'] = isset($entry->timestamp) ? $entry->timestamp : REQUEST_TIME;
         }
+
+        // Make sure the item title fits in 255 varchar column.
+        $item['title'] = truncate_utf8($item['title'], 255, TRUE, TRUE);
         aggregator_save_item(array('iid' => (isset($entry->iid) ? $entry->iid : ''), 'fid' => $feed->fid, 'timestamp' => $item['timestamp'], 'title' => $item['title'], 'link' => $item['link'], 'author' => $item['author'], 'description' => $item['description'], 'guid' => $item['guid']));
       }
     }
@@ -163,8 +165,8 @@ function aggregator_save_item($edit) {
     $result = db_query('SELECT cid FROM {aggregator_category_feed} WHERE fid = :fid', array(':fid' => $edit['fid']));
     foreach ($result as $category) {
       db_merge('aggregator_category_item')
-        ->key(array('iid' => $edit['iid']))
-        ->fields(array(
+        ->key(array(
+          'iid' => $edit['iid'],
           'cid' => $category->cid,
         ))
         ->execute();

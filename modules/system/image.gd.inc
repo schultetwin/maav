@@ -1,5 +1,4 @@
 <?php
-// $Id$
 
 /**
  * @file
@@ -347,7 +346,7 @@ function image_gd_create_tmp(stdClass $image, $width, $height) {
  */
 function image_gd_get_info(stdClass $image) {
   $details = FALSE;
-  $data = getimagesize(drupal_realpath($image->source));
+  $data = getimagesize($image->source);
 
   if (isset($data) && is_array($data)) {
     $extensions = array('1' => 'gif', '2' => 'jpg', '3' => 'png');

@@ -1,5 +1,4 @@
 <?php
-// $Id$
 
 /**
  * @file
@@ -44,7 +43,7 @@
     <?php print $name; ?>
   </div>
 
-  <?php foreach ($profile as $field) : ?>
+  <?php foreach ($profile as $field): ?>
     <div class="field">
       <?php print $field->value; ?>
     </div>
