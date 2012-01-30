@@ -40,6 +40,7 @@ body {
  * Header
  */
 #header {
+  margin-bottom: 10px;
 }
 
 #header .section {
@@ -104,6 +105,13 @@ div#site-name /* The name of the website */ {
 }
 
 .region-highlighted {
+  background: #FCF117;
+  padding: 10px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .breadcrumb /* The path to the current page in the form of a list of links */ {
