@@ -23,7 +23,7 @@ body {
 }
 
 #header .section {
-  background-image: url("../images/headerimg_2.jpg");
+  background: #3A5E8C;
   height: 300px;
   -webkit-border-bottom-right-radius: 12px;
   -webkit-border-bottom-left-radius: 12px;
