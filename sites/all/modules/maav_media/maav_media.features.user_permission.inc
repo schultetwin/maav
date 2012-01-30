@@ -31,32 +31,52 @@ function maav_media_user_default_permissions() {
   // Exported permission: create media content
   $permissions['create media content'] = array(
     'name' => 'create media content',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'Team Lead',
+      1 => 'Web Team',
+      2 => 'administrator',
+    ),
+    'module' => 'node',
   );
 
   // Exported permission: delete any media content
   $permissions['delete any media content'] = array(
     'name' => 'delete any media content',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'administrator',
+    ),
+    'module' => 'node',
   );
 
   // Exported permission: delete own media content
   $permissions['delete own media content'] = array(
     'name' => 'delete own media content',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'Team Lead',
+      1 => 'Web Team',
+      2 => 'administrator',
+    ),
+    'module' => 'node',
   );
 
   // Exported permission: edit any media content
   $permissions['edit any media content'] = array(
     'name' => 'edit any media content',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'Team Lead',
+      1 => 'Web Team',
+      2 => 'administrator',
+    ),
+    'module' => 'node',
   );
 
   // Exported permission: edit media
   $permissions['edit media'] = array(
     'name' => 'edit media',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Team Lead',
+      1 => 'Web Team',
+      2 => 'administrator',
     ),
     'module' => 'media',
   );
@@ -64,14 +84,22 @@ function maav_media_user_default_permissions() {
   // Exported permission: edit own media content
   $permissions['edit own media content'] = array(
     'name' => 'edit own media content',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'Team Lead',
+      1 => 'Web Team',
+      2 => 'administrator',
+    ),
+    'module' => 'node',
   );
 
   // Exported permission: import media
   $permissions['import media'] = array(
     'name' => 'import media',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Team Lead',
+      1 => 'Team Member',
+      2 => 'Web Team',
+      3 => 'administrator',
     ),
     'module' => 'media',
   );
