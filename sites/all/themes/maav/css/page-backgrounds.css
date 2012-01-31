@@ -24,7 +24,7 @@ body {
 
 #header .section {
   background: #3A5E8C;
-  height: 300px;
+  height: 225px;
   -webkit-border-bottom-right-radius: 12px;
   -webkit-border-bottom-left-radius: 12px;
   -moz-border-radius-bottomright: 12px;
@@ -32,6 +32,7 @@ body {
   border-bottom-right-radius: 12px;
   border-bottom-left-radius: 12px;
 }
+
 
 #main-wrapper {
 }
