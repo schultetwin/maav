@@ -3,3 +3,6 @@
  * Views Styling
  */
 
+.view-gallery.view-display-id-page td {
+  width: 33%;
+}

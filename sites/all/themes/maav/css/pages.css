@@ -70,7 +70,7 @@ div#site-name /* The name of the website */ {
 
 #site-name a:link,
 #site-name a:visited {
-  color: #000;
+  color: #F6D565;
   text-decoration: none;
 }
 
