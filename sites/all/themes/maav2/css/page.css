@@ -42,6 +42,12 @@ h1#page-title {}
 .region-content-aside {}
 .region-tertiary-content {}
 .region-footer {}
+.region-section-info {
+  background: #79b5f1;
+  -moz-box-shadow:    4px 4px 8px 3px #ccc;
+  -webkit-box-shadow: 4px 4px 8px 3px #ccc;
+  box-shadow:         4px 4px 8px 3px #ccc;
+}
 
 /* Sidebars */
 .sidebar {}
