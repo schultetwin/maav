@@ -1,0 +1,93 @@
+<?php
+/**
+ * Implementation of hook_bean_types_api_info().
+ */
+function maav_info_blocks_bean_types_api_info() {
+  return array(
+    'api' => 4,
+  );
+}
+
+/**
+ * Implements hook_bean_types().
+ *
+ * Beans uses ctools plugins to define the block types.
+ * All plugin files must be registered in the .info file.
+ */
+function maav_info_blocks_bean_types() {
+  $plugins = array();
+
+  $plugin_path = drupal_get_path('module', 'maav_info_blocks') . '/plugins/bean';
+
+  $plugins['maav_info_block_bean'] = array(
+    'label' => t('MAAV Info Block Bean'),
+    // This is optional.  Set it to TRUE if you do not want the plugin to be displayed in the UI
+    'abstract' => FALSE,
+    'handler' => array(
+      'class' => 'maav_info_block_bean',
+      'parent' => 'bean',
+    ),
+    'editable' => 1,
+    'path' => $plugin_path,
+    'file' => 'maav_info_block_bean.maav_info.inc'
+  );
+
+  return $plugins;
+}
+
+/**
+ * Implementation of hook_theme().
+ */
+function maav_info_blocks_theme() {
+  return array(
+    'maav_info_blocks_bean' => array(
+      'render element' => 'bean',
+    ),
+  );
+}
+
+function theme_maav_info_blocks_bean($vars) {
+  $output = '<div id="section-info">';
+  $output .= '<div class="section-picture">';
+  $output .= drupal_render($vars['bean']->field_info_block_image);
+  $output .= '</div>';
+  $output .= '<div class="section-information"'>
+  $output .= '<div class="section-information title">';
+  $output .= check_plain($vars['bean']->label);
+  $output .= '<div>';
+  $output .= '<div class="section-information body">';
+  $output .= drupal_render($vars['bean']->field_maav_info_block_desc);
+  $output .= '</div></div></div>';
+  return $output;
+}
+
+/**
+ * Implements hook_image_default_styles().
+ */
+function maav_info_blocks_image_default_styles() {
+  $styles = array();
+
+  // Exported image style: section_info
+  $styles['section_info'] = array(
+    'name' => 'section_info',
+    'effects' => array(
+      1 => array(
+        'label' => 'Scale and crop',
+        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
+        'effect callback' => 'image_scale_and_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
+        'module' => 'image',
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => '130',
+          'height' => '110',
+        ),
+        'weight' => '1',
+      ),
+    ),
+  );
+
+  return $styles;
+}
