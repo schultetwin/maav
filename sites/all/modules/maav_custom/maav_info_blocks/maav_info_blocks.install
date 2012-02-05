@@ -1,0 +1,115 @@
+<?php
+
+function maav_info_blocks_install() {
+
+  foreach (_maav_info_blocks_fields() as $field) {
+    field_create_field($field);
+  }
+
+  foreach (_maav_info_blocks_instances() as $instance) {
+    field_create_instance($instance);
+  }
+
+}
+
+function _maav_info_blocks_fields() {
+  $t = get_t();
+  return array(
+    'field_maav_info_block_image' => array(
+      'field_name' => 'field_maav_info_block_image',
+      'cardinality' => 1,
+      'type'        => 'image',
+      'settings' => array(
+        'uri_scheme' => 'public',
+        'default_image' => 0,
+      ),
+    ),
+    'field_maav_info_block_desc' => array(
+      'field_name' => 'field_maav_info_block_desc',
+      'cardinality' => 1,
+      'type' => 'text_long',
+      'module' => 'text',
+    ),
+   );
+
+}
+function _maav_info_blocks_instances() {
+  $t = get_t();
+  return array(
+    'field_maav_info_block_image' => array(
+      'field_name' => 'field_maav_info_block_image',
+      'label'       => $t('Image'),
+      'bundle' => 'maav_info_block_bean',
+      'entity_type' => 'bean',
+      'widget' => array(
+        'weight' => 1,
+        'type' => 'image_image',
+        'module' => 'image',
+        'settings' => array(
+          'progress_indicator' => throbber,
+          'preview_image_style' => section_info,
+        ),
+      ),
+      'settings' => array(
+        'file_directory' => 'images/section_info_blocks',
+        'file_extensions' => 'png gif jpg jpeg',
+        'min_resolution' => '130x110',
+        'alt_field' => 0,
+        'title_field' => 0,
+      ),
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'type' => 'image',
+          'weight' => 0,
+          'settings' => array(
+            'image_style' => 'section_info',
+          ),
+          'module' => 'image',
+        ),
+      ),
+
+      'description' => 'Image to display to the left of the text (trust me, it will look a lot better with the image)',
+    ),
+    'field_maav_info_block_desc' => array(
+      'field_name' => 'field_maav_info_block_desc',
+      'label' => $t('Body'),
+      'widget' => array(
+        'weight' => 3,
+        'type' => 'text_textarea',
+        'module' => 'text',
+        'settings' => array(
+          'rows' => 5,
+        ),
+      ),
+      'settings' => array(
+        'text_processing' => 0,
+      ),
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'type' => 'text_default',
+          'weight' => 2,
+          'settings' => array(),
+          'module' => 'text',
+        ),
+      ),
+      'required' => 1,
+      'description' => $t('The description that should go with this section.'),
+      'entity_type' => 'bean',
+      'bundle' => 'maav_info_block_bean'
+    ),
+  );
+}
+
+function maav_info_blocks_uninstall() {
+  $instance = array('field_name' => 'field_maav_info_block_image','bundle' => 'maav_info_block_bean','entity_type' => 'bean');
+  field_delete_instance($instance);
+
+  $instance = array('field_name' => 'field_maav_info_block_desc','bundle' => 'maav_info_block_bean','entity_type' => 'bean');
+
+   $fields = array_keys(_maav_info_blocks_fields());
+   foreach ($fields as $field) {
+      field_delete_field($field);
+  }
+}
