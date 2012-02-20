@@ -87,3 +87,23 @@
 #dashboard .block ul {
   margin-left: 0;
 }
+
+/* Section Info block */
+.section-info-pic {
+  padding: 20px 20px;
+  margin: 6px 6px;
+  border-right: white dashed 6px;
+  display: inline-block;
+  width: 12%;
+}
+
+.section-info-info {
+  color: white;
+  padding-left: 10px;
+  display: inline-block;
+  width: 80%;
+}
+
+.section-info-info .block-title {
+  font-size: 24px;
+}

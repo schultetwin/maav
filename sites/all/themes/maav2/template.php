@@ -91,7 +91,18 @@ function maav2_preprocess_block(&$vars) {
 function maav2_process_block(&$vars) {
 }
 // */
-
+function maav2_preprocess_block(&$vars) {
+ $block = $vars['block'];
+  switch ($block->bid) {
+    case 'bean-home':
+      foreach ($vars['elements']['content']['bean'] as $block) {
+        if (!is_array($block)) continue;
+        $vars['stylized_image'] = drupal_render_children($block['field_maav_info_block_image']);
+        $vars['special_description'] = drupal_render_children($block['field_maav_info_block_desc']);
+        $vars['special_title'] = $block['#entity']->title;
+      }
+  }
+}
 /**
  * Add the Style Schemes if enabled.
  * NOTE: You MUST make changes in your subthemes theme-settings.php file

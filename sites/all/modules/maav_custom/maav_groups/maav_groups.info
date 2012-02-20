@@ -1,0 +1,5 @@
+name = MAAV Groups
+description = "Customizations for MAAV Groups"
+package = "MAAV"
+dependencies[] = og
+dependencies[] = entity
