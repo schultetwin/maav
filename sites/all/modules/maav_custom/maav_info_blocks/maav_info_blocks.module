@@ -91,3 +91,7 @@ function maav_info_blocks_image_default_styles() {
 
   return $styles;
 }
+
+function maav_info_blocks_preprocess_block(&$vars)  {
+  $one = 1;
+}
