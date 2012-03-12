@@ -95,6 +95,7 @@
   border-right: white dashed 6px;
   display: inline-block;
   width: 12%;
+  vertical-align: middle;
 }
 
 .section-info-info {
@@ -102,6 +103,7 @@
   padding-left: 10px;
   display: inline-block;
   width: 80%;
+  vertical-align: middle;
 }
 
 .section-info-info .block-title {

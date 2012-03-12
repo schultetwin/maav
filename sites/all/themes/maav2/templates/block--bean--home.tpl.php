@@ -5,11 +5,15 @@
       <div class="section-info-pic"><?php print $stylized_image ?></div>
     <?php endif;?>
     <div class="section-info-info">
-      <?php if ($special_title): ?>
-        <h2<?php print $title_attributes; ?>><?php print $special_title; ?></h2>
-      <?php endif; ?>
-      <div<?php print $content_attributes; ?>>
-        <?php print $special_description ?>
+      <?php print render($title_prefix); ?>
+      <?php if ($block->subject): ?>
+        <h2<?php print $title_attributes; ?>><?php print $block->subject ?></h2>
+      <?php endif;?>
+      <?php print render($title_suffix); ?>
+      <div class="content"<?php print $content_attributes; ?>>
+        <?php
+          print render($content);
+        ?>
       </div>
     </div>
   </div>

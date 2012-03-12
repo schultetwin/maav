@@ -92,14 +92,22 @@ function maav2_process_block(&$vars) {
 }
 // */
 function maav2_preprocess_block(&$vars) {
- $block = $vars['block'];
-  switch ($block->bid) {
+ $b = $vars['block'];
+  switch ($b->bid) {
     case 'bean-home':
-      foreach ($vars['elements']['content']['bean'] as $block) {
+      // For some reason, depending if you're logged in or not, this is displayed differently
+      if (isset($vars['elements']['bean'])) {
+        $loop = $vars['elements']['bean'];
+      }
+      else if (isset($vars['elements']['content']['bean'])) {
+        $loop = $vars['elements']['content']['bean'];
+      }
+      else {
+        return;
+      }
+      foreach ($loop as $block) {
         if (!is_array($block)) continue;
         $vars['stylized_image'] = drupal_render_children($block['field_maav_info_block_image']);
-        $vars['special_description'] = drupal_render_children($block['field_maav_info_block_desc']);
-        $vars['special_title'] = $block['#entity']->title;
       }
   }
 }
