@@ -31,7 +31,11 @@ function maav_info_blocks_feature_user_default_permissions() {
   // Exported permission: view any maav_info_block_bean bean
   $permissions['view any maav_info_block_bean bean'] = array(
     'name' => 'view any maav_info_block_bean bean',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'anonymous user',
+      1 => 'authenticated user',
+    ),
+    'module' => 'bean',
   );
 
   return $permissions;
