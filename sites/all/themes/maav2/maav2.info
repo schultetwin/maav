@@ -29,6 +29,9 @@
   ; Dark stylesheet for building negative or dark designs.
   ;stylesheets[all][] = css/dark.css
 
+  scripts[] = js/jquery.equal-height-columns.js
+  scripts[] = js/script.js
+
 
 ;----------// Regions
 

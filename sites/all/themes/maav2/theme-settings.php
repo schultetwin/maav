@@ -11,7 +11,13 @@
 
 // Replace 'adaptivetheme_subtheme' with your themes name, eg:
 // function your_themes_name_form_system_theme_settings_alter(&$form, &$form_state)
-function adaptivetheme_subtheme_form_system_theme_settings_alter(&$form, &$form_state)  {
+function maav2_form_system_theme_settings_alter(&$form, &$form_state)  {
+  //$form['maav2'] = array(
+  //  '#type' => 'fieldset',
+  //  '#title' => t('MAAV2 Customizations'),
+  //);
+
+  //$form['maav2']['footer_text
 
   // Style Schemes
   /* -- Delete this line if you want to use Style Schemes

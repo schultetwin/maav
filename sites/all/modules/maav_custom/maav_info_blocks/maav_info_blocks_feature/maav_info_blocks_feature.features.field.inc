@@ -10,14 +10,14 @@
 function maav_info_blocks_feature_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'bean-section_info-field_section_body'
-  $fields['bean-section_info-field_section_body'] = array(
+  // Exported field: 'bean-maav_info_block_bean-field_maav_info_block_desc'
+  $fields['bean-maav_info_block_bean-field_maav_info_block_desc'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_section_body',
+      'field_name' => 'field_maav_info_block_desc',
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -37,7 +37,7 @@ function maav_info_blocks_feature_field_default_fields() {
       'type' => 'text_long',
     ),
     'field_instance' => array(
-      'bundle' => 'section_info',
+      'bundle' => 'maav_info_block_bean',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => 'The description that should go with this section.',
@@ -47,37 +47,36 @@ function maav_info_blocks_feature_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '2',
+          'weight' => 2,
         ),
       ),
       'entity_type' => 'bean',
-      'field_name' => 'field_section_body',
+      'field_name' => 'field_maav_info_block_desc',
       'label' => 'Body',
       'required' => 1,
       'settings' => array(
-        'text_processing' => '0',
+        'text_processing' => 0,
         'user_register_form' => FALSE,
       ),
       'widget' => array(
-        'active' => 1,
         'module' => 'text',
         'settings' => array(
-          'rows' => '5',
+          'rows' => 5,
         ),
         'type' => 'text_textarea',
-        'weight' => '3',
+        'weight' => 3,
       ),
     ),
   );
 
-  // Exported field: 'bean-section_info-field_section_info'
-  $fields['bean-section_info-field_section_info'] = array(
+  // Exported field: 'bean-maav_info_block_bean-field_maav_info_block_image'
+  $fields['bean-maav_info_block_bean-field_maav_info_block_image'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_section_info',
+      'field_name' => 'field_maav_info_block_image',
       'foreign keys' => array(
         'fid' => array(
           'columns' => array(
@@ -100,7 +99,7 @@ function maav_info_blocks_feature_field_default_fields() {
       'type' => 'image',
     ),
     'field_instance' => array(
-      'bundle' => 'section_info',
+      'bundle' => 'maav_info_block_bean',
       'deleted' => '0',
       'description' => 'Image to display to the left of the text (trust me, it will look a lot better with the image)',
       'display' => array(
@@ -112,32 +111,31 @@ function maav_info_blocks_feature_field_default_fields() {
             'image_style' => 'section_info',
           ),
           'type' => 'image',
-          'weight' => '0',
+          'weight' => 0,
         ),
       ),
       'entity_type' => 'bean',
-      'field_name' => 'field_section_info',
+      'field_name' => 'field_maav_info_block_image',
       'label' => 'Image',
-      'required' => 0,
+      'required' => FALSE,
       'settings' => array(
         'alt_field' => 0,
         'file_directory' => 'images/section_info_blocks',
         'file_extensions' => 'png gif jpg jpeg',
         'max_filesize' => '',
         'max_resolution' => '',
-        'min_resolution' => '',
+        'min_resolution' => '130x110',
         'title_field' => 0,
         'user_register_form' => FALSE,
       ),
       'widget' => array(
-        'active' => 1,
         'module' => 'image',
         'settings' => array(
           'preview_image_style' => 'section_info',
           'progress_indicator' => 'throbber',
         ),
         'type' => 'image_image',
-        'weight' => '1',
+        'weight' => 1,
       ),
     ),
   );
