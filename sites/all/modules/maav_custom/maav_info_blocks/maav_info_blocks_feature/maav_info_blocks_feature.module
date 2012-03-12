@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the MAAV Info Blocks Feature feature.
+ */
+
+include_once('maav_info_blocks_feature.features.inc');
