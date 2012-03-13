@@ -3,7 +3,9 @@
   margin-bottom: 20px;
 }
 
-.block-inner {} /* set block background styles on .block-inner */
+.block-inner {
+  padding-top: 10px;  
+} /* set block background styles on .block-inner */
 .block-title {}
 .block-content {}
 
