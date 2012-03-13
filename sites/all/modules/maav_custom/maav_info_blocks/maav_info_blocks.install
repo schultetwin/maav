@@ -46,8 +46,8 @@ function _maav_info_blocks_instances() {
         'type' => 'image_image',
         'module' => 'image',
         'settings' => array(
-          'progress_indicator' => throbber,
-          'preview_image_style' => section_info,
+          'progress_indicator' => 'throbber',
+          'preview_image_style' => 'section_info',
         ),
       ),
       'settings' => array(
