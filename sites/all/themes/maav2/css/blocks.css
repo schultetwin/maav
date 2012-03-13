@@ -104,6 +104,7 @@
   display: inline-block;
   width: 80%;
   vertical-align: middle;
+  padding-bottom: 10px;
 }
 
 .section-info-info .block-title {
