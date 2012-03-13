@@ -74,7 +74,11 @@ h1#page-title {}
   background: white;
 }
 /* Footer - the main page footer only */
-#page > footer {}
+#page > footer {
+  min-height: 50px;
+  background: #79b5f1;
+  margin-top: 10px;
+}
 
 /* Feed icons */
 #feed-icons {}
