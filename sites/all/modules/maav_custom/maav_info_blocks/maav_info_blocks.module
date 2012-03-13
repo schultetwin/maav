@@ -26,6 +26,8 @@ function maav_info_blocks_bean_types() {
     'handler' => array(
       'class' => 'maav_info_block_bean',
       'parent' => 'bean',
+      'path' => $plugin_path,
+      'file' => 'maav_info_block_bean.maav_info.inc'
     ),
     'editable' => 1,
     'path' => $plugin_path,
