@@ -13,7 +13,7 @@ html {
 body {
   font-family: Verdana, Geneva, "DejaVu Sans", sans-serif;
   line-height: 1.5;
-  background-image: url("/sites/all/themes/maav2/css/images/bg/page_bg.png");
+  background-image: url("images/bg/page_bg.png");
 }
 h1 {
   font-size: 1.538em;
