@@ -51,6 +51,16 @@ a:focus {}
   padding: 0;
 }
 
+.nav ul.menu li a:hover,
+.nav ul.menu li a:focus,
+.nav ul.menu li a:active  {
+  background-color: #FFFFDF;  
+}
+
+.nav ul.menu li a.active {
+  background-color: #FFFF73;
+}
+
 /* Menu bar block */
 .nav .block {
   margin-bottom: 0;
@@ -88,9 +98,12 @@ ul.menu li a:visited {}
 
 ul.menu li a:hover,
 ul.menu li a:focus,
-ul.menu li a:active  {}
+ul.menu li a:active  {
+  color: white;
+}
 
-ul.menu li.active a  {}
+ul.menu li.active a  {
+}
 ul.menu li.active-trail a {}
 
 ul.menu li.first {}
