@@ -1,6 +1,7 @@
 name = MAAV Info Blocks
 description = "Add custom blocks for maav, that should appear in specific places on the site"
 package = "MAAV"
+core = 7.x
 
 files[] = "plugins/bean/maav_info_block_bean.maav_info.inc"
 dependencies[] = bean
