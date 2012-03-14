@@ -305,6 +305,9 @@ define('DRUPAL_PHP_FUNCTION_PATTERN', '[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*'
  if ( !extension_loaded( 'pdo_mysql' )) {
      dl( 'pdo_mysql.so' ); 
  }
+ if ( !extension_loaded( 'ldap' )) {
+   dl( 'ldap.so');
+ }
 
 abstract class DrupalCacheArray implements ArrayAccess {
 

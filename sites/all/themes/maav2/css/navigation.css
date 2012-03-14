@@ -55,6 +55,7 @@ a:focus {}
 .nav ul.menu li a:focus,
 .nav ul.menu li a:active  {
   background-color: #FFFFDF;  
+  color: black;
 }
 
 .nav ul.menu li a.active {
