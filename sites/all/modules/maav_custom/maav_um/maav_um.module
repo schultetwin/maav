@@ -4,7 +4,7 @@
  * Implementation of hook_boot().
  */
 function maav_um_boot() {
-  if (function_exists(dl)) {
+  if (function_exists('dl')) {
     if ( !extension_loaded( 'json' )) {
       dl( 'json.so' ); 
     }

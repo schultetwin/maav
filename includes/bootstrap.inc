@@ -286,28 +286,31 @@ define('DRUPAL_PHP_FUNCTION_PATTERN', '[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*'
  */
 
 
- if ( !extension_loaded( 'json' )) {
+ if (function_exists('dl')) {
+   if ( !extension_loaded( 'json' )) {
      dl( 'json.so' ); 
- }
+   }
 
- if ( !extension_loaded( 'gd' )) {
+   if ( !extension_loaded( 'gd' )) {
      dl( 'gd.so' ); 
- }
+   }
 
- if ( !extension_loaded( 'mbstring' )) {
+   if ( !extension_loaded( 'mbstring' )) {
      dl( 'mbstring.so' );
- }
+   }
 
- if ( !extension_loaded( 'pdo' )) {
+   if ( !extension_loaded( 'pdo' )) {
      dl( 'pdo.so' ); 
+   }
+
+   if ( !extension_loaded( 'pdo_mysql' )) {
+     dl( 'pdo_mysql.so' ); 
+   }
+   if ( !extension_loaded( 'ldap' )) {
+     dl( 'ldap.so');
+   }
  }
 
- if ( !extension_loaded( 'pdo_mysql' )) {
-     dl( 'pdo_mysql.so' ); 
- }
- if ( !extension_loaded( 'ldap' )) {
-   dl( 'ldap.so');
- }
 
 abstract class DrupalCacheArray implements ArrayAccess {
 
