@@ -14,6 +14,14 @@
   display: inline-block;
   vertical-align: middle;
   max-width: 290px;
+  height: inherit;
+}
+#logo a {
+  display: block;
+  height: inherit;
+}
+#logo a img {
+  height: inherit;
 }
 #page > header > hgroup {
   margin: 0 10px;
