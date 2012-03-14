@@ -1,5 +1,6 @@
 name = MAAV Groups
 description = "Customizations for MAAV Groups"
 package = "MAAV"
+core = 7.x
 dependencies[] = og
 dependencies[] = entity
