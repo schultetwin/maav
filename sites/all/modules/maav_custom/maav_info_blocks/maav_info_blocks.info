@@ -5,4 +5,3 @@ core = 7.x
 
 files[] = "plugins/bean/maav_info_block_bean.maav_info.inc"
 dependencies[] = bean
-core = 7.x
