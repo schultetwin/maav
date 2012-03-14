@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * Implementation of hook_boot().
+ */
+function maav_um_boot() {
+  if (function_exists(dl)) {
+    if ( !extension_loaded( 'json' )) {
+      dl( 'json.so' ); 
+    }
+
+    if ( !extension_loaded( 'gd' )) {
+      dl( 'gd.so' ); 
+    }
+
+    if ( !extension_loaded( 'mbstring' )) {
+      dl( 'mbstring.so' );
+    }
+    if ( !extension_loaded( 'pdo' )) {
+	    dl( 'pdo.so' ); 
+    }
+
+    if ( !extension_loaded( 'pdo_mysql' )) {
+	    dl( 'pdo_mysql.so' ); 
+    }
+
+    if ( !extension_loaded('ldap')) {
+      dl('ldap.so');
+    }
+  }
+}

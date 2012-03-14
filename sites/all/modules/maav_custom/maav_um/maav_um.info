@@ -1,0 +1,4 @@
+name = MAAV UM
+description = "Contains some specific code needed for running on the UofM servers"
+package = "MAAV"
+core = 7.x
