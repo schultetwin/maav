@@ -79,6 +79,17 @@
   clip: rect(1px, 1px, 1px, 1px);
 }
 
+/* MAAV login block */
+#block-maav-login-block-maav-login a {
+  font-weight: bolder;
+  text-decoration: none;
+}
+#block-maav-login-block-maav-login a:hover, 
+#block-maav-login-block-maav-login a:active, 
+#block-maav-login-block-maav-login a:focus {
+  color: black;
+}
+
 /* Reset margins and padding for the Help block .block-inner */
 #block-system-help .block-inner {
   padding: 0;
