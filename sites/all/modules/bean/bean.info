@@ -5,13 +5,14 @@ files[] = includes/bean.core.inc
 files[] = includes/bean.info.inc
 files[] = plugins/base.inc
 files[] = includes/translation.handler.bean.inc
+files[] = bean.test
 dependencies[] = block
 dependencies[] = entity
 dependencies[] = ctools
 
-; Information added by drupal.org packaging script on 2011-12-30
-version = "7.x-1.0-beta10"
+; Information added by drupal.org packaging script on 2012-02-18
+version = "7.x-1.0-rc1"
 core = "7.x"
 project = "bean"
-datestamp = "1325217937"
+datestamp = "1329531338"
 

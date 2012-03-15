@@ -53,6 +53,15 @@ interface BeanTypePluginInterface {
   public function getLabel();
 
   /**
+   * Get the description of the plugin
+   *
+   * @abstract
+   *
+   * @return description of the type
+   */
+  public function getDescription();
+
+  /**
    * Set the Bean object for later use
    *
    * @abstract
@@ -120,6 +129,7 @@ interface BeanTypePluginInterface {
  */
 class Bean extends Entity {
   public $label;
+  public $description;
   public $title;
   public $type;
   public $data;
@@ -156,7 +166,7 @@ class Bean extends Entity {
 
   protected function setUp() {
     parent::setUp();
-    
+
     if (!empty($this->type)) {
       $plugin = bean_load_plugin_class($this->type);
       $this->loadUp($plugin);
@@ -313,9 +323,10 @@ class Bean extends Entity {
         } while (bean_load_delta($this->delta));
       }
     }
-    
+
     $return = parent::save();
     block_flush_caches();
+    cache_clear_all('bean:' . $this->delta . ':', 'cache_block', TRUE);
     return $return;
   }
 
@@ -343,7 +354,7 @@ class Bean extends Entity {
         ->condition('module', 'bean')
         ->condition('delta', $this->identifier())
         ->execute();
-      entity_get_controller($this->entityType)->delete(array($this->internalIdentifier())); 
+      entity_get_controller($this->entityType)->delete(array($this->internalIdentifier()));
     }
   }
 }
@@ -363,7 +374,7 @@ class BeanEntityAPIController extends EntityAPIController {
    * @see EntityAPIController#load($ids, $conditions)
    *
    * We need to load the plugin and set the defaults before
-   * anything else is donw to the record
+   * anything else is down to the record
    */
   public function load($ids = array(), $conditions = array()) {
     $entities = array();

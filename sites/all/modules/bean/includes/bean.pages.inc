@@ -6,14 +6,6 @@
  */
 
 /**
- * View the Bean
- */
-function bean_view(Bean $bean) {
-  drupal_set_title($bean->label());
-  return $bean->view();
-}
-
-/**
  * Edit bean page callback
  */
 function bean_edit(Bean $bean) {
@@ -49,28 +41,39 @@ function bean_list() {
 
   // Build the sortable table header.
   $header = array(
-    'title' => array('data' => t('Title'), 'field' => 'b.label', 'sort' => 'asc'),
-    'type' => array('data' => t('Type'), 'field' => 'b.type'),
+    'title' => array(
+      'data' => 'Title',
+      'type' => 'property',
+      'specifier' => 'title',
+      'sort' => 'asc'
+    ),
+    'type' => array(
+      'data' => 'Type',
+      'type' => 'entity',
+      'specifier' => 'bundle',
+    ),
     'operations' => array('data' => t('Operations')),
   );
 
-  $sql_query = db_select('bean', 'b');
-
-  $sql_query->fields('b', array('bid', 'label', 'type', 'delta'));
-  $sql_query = $sql_query->extend('TableSort')->extend('PagerDefault');
-
-  // Add filters.
   $filters = bean_get_filter();
-  $sql_query->limit($filters['per_page']);
+
+
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'bean')
+    ->tableSort($header)
+    ->pager($filters['per_page']);
+
   if (!empty($filters['types'])) {
-    $sql_query->condition('type', $filters['types'], 'IN');
+    $query->entityCondition('bundle', $filters['types'], 'IN');
   }
 
-  $beans = $sql_query->orderByHeader($header)->execute();
-
-  $destination = drupal_get_destination();
-
-  $beans = $beans ? $beans : array();
+  $result = $query->execute();
+  if (!empty($result)) {
+    $beans = bean_load_multiple(array_keys($result['bean']));
+  }
+  else {
+    $beans = array();
+  }
 
   foreach ($beans as $bean) {
     $rows[$bean->bid] = array(
@@ -83,6 +86,8 @@ function bean_list() {
       ),
       'type' => check_plain($bean->type),
     );
+
+    $destination = drupal_get_destination();
 
     // Build a list of all the accessible operations for the current bean.
     $operations = array();
@@ -126,13 +131,19 @@ function bean_list() {
 function theme_bean_add_list($variables) {
   $content = $variables['content'];
   $output = '';
+  $blocks = array();
+  $i = 0;
 
   if ($content) {
-    $output = '<dl class="bean-type-list">';
     foreach ($content as $item) {
-      $output .= '<dt>' . l(t('Add @label', array('@label' => $item->getLabel())), 'block/add/' . str_replace('_', '-', $item->type)) . '</dt>';
+      $title = l(t('<span class="icon"></span>@label', array('@label' => $item->getLabel())), 'block/add/' . $item->buildURL(), array('html' => TRUE));
+      $description = (!is_array($item->getDescription())) ? '<div class="description">' . $item->getDescription() . '</div>' : '';
+      //creative way to setup sorting by label; add number to prevent duplicate keys
+      $blocks[str_replace(' ', '', $item->getLabel()) . '_' . $i] = '<li>' . $title . $description . '</li>';
+      $i++;
     }
-    $output .= '</dl>';
+    ksort($blocks);
+    $output = '<ul class="bean-type-list admin-list">' . implode('', $blocks) . '</ul>';
   }
   else {
     $output = '<p>' . t('You have not created any block types yet.') . '</p>';
@@ -375,6 +386,7 @@ function bean_filter_form($form, &$form_state) {
   foreach (bean_get_types() as $type) {
     $type_options[$type->type] = $type->getLabel();
   }
+  sort($type_options);
 
   $form['filters']['types'] = array(
     '#type' => 'select',

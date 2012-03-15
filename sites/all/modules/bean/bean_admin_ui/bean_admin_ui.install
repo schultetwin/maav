@@ -49,6 +49,11 @@ function bean_admin_ui_schema() {
         'type' => 'text',
         'size' => 'big',
       ),
+      'description' => array(
+        'description' => 'The description of this bean type.',
+        'type' => 'text',
+        'size' => 'big',
+      ),
     ),
     'primary key' => array('type_id'),
     'unique keys' => array(
@@ -103,4 +108,20 @@ function bean_admin_ui_update_7001() {
   cache_clear_all('*', 'cache', TRUE);
 
   return t('Added new fields required for CTools exportable support.');
+}
+
+/**
+ * Add description column to bean
+ *
+ */
+function bean_admin_ui_update_7002() {
+  // Add the description column.
+  $spec = array(
+    'description' => 'Block description.',
+    'type' => 'text',
+    'size' => 'big',
+  );
+  db_add_field('bean_type', 'description', $spec);
+
+  return t('Added description field to beans.');
 }

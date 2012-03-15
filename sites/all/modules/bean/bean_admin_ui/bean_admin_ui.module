@@ -86,6 +86,7 @@ function bean_admin_ui_bean_types() {
   foreach ($bean_types as $bean_type) {
     $plugins[$bean_type->name] = array(
       'label' => $bean_type->label,
+      'description' => $bean_type->description,
       'type' => $bean_type->name,
       'export_status' => $bean_type->type,
     );
@@ -133,6 +134,7 @@ function bean_admin_ui_get_types() {
 function _bean_admin_default_plugin() {
   return array(
     'label' => '',
+    'description' => '',
     'type' => '',
     'editable' => TRUE,
     'handler' => array(

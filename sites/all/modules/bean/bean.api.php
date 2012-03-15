@@ -25,6 +25,7 @@ function hook_bean_types() {
 
   $plugins['plugin_key'] = array(
     'label' => t('Title'),
+    'description' => t('Description'),
     // This is optional.  Set it to TRUE if you do not want the plugin to be displayed in the UI
     'abstract' => FALSE,
     'handler' => array(

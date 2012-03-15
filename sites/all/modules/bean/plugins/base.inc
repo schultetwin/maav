@@ -34,6 +34,13 @@ abstract class BeanPlugin implements BeanTypePluginInterface {
     return $this->getInfo('label');
   }
 
+  /**
+   * Get the description
+   */
+  public function getDescription() {
+    return $this->getInfo('description');
+  }
+
   public function __construct($plugin_info) {
     $this->plugin_info = $plugin_info;
     $this->type = $plugin_info['name'];

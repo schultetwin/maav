@@ -34,6 +34,7 @@ class BeanCustom extends BeanPlugin {
     $bean_type = array(
       'name' => $this->type,
       'label' => $this->getLabel(),
+      'description' => $this->getDescription(),
     );
 
     $primary_key = $new == FALSE ? 'name' : array();
@@ -57,5 +58,14 @@ class BeanCustom extends BeanPlugin {
    */
   public function setLabel($label) {
     $this->plugin_info['label'] = $label;
+  }
+
+  /**
+   * Set the description.
+   *
+   * @param description
+   */
+  public function setDescription($description) {
+    $this->plugin_info['description'] = $description;
   }
 }

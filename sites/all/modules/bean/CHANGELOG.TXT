@@ -2,6 +2,20 @@ Current API VERSION: 4.
 
 bean 7.x-1.x-dev
 ================
+
+bean 7.x-1.0-rc1
+================
+Added description to beans
+Improve block/add and admin/structure/block-types by alphabetizing and making more consistent with node/add
+Added Tests
+Issue #1389446 by rogical: Added config link in info file.
+Issue #1216572 by duellj: Fixed Block cache not flushed after editing a bean.
+fixing a couple of errant block_types (underscore)
+Issue #1345966 by brantwynn and indytechcook: Change bean page to use EntityFieldQuery
+
+
+bean 7.x-1.0-beta10
+================
 Issue #1288438 by drewish: Fixed Definitive broken admin page, when filter type isn't set.
 fixing schema field for delta in bean.info.inc by tim.cosgrove
 Issue #1376902 by indytechcook: Fixed Plugin container of plugin type bean:types points to nonexistent file.

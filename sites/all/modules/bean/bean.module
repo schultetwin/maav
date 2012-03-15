@@ -64,6 +64,7 @@ function bean_entity_info() {
     if (!empty($type)) {
       $return['bean']['bundles'][$type->type] = array(
         'label' => $type->getLabel(),
+        'description' => $type->getDescription(),
         'admin' => array(
           'path' => 'admin/structure/block-types/manage/%bean_type',
           'real path' => 'admin/structure/block-types/manage/' . $type->buildURL(),
@@ -173,6 +174,34 @@ function bean_menu() {
     'type' => MENU_LOCAL_TASK | MENU_NORMAL_ITEM,
   );
 
+  if (module_exists('devel')) {
+    $devel_path = drupal_get_path('module', 'devel');
+    $items['block/%bean_delta/devel'] = array(
+      'title' => 'Devel',
+      'page callback' => 'devel_load_object',
+      'page arguments' => array('bean', 1),
+      'access arguments' => array('administer beans'),
+      'type' => MENU_LOCAL_TASK,
+      'file' => 'devel.pages.inc',
+      'file path' => $devel_path,
+      'weight' => 100,
+    );
+    $items['block/%bean_delta/devel/load'] = array(
+      'title' => 'Load',
+      'type' => MENU_DEFAULT_LOCAL_TASK,
+    );
+    $items['block/%bean_delta/devel/render'] = array(
+      'title' => 'Render',
+      'page callback' => 'devel_render_object',
+      'page arguments' => array('bean', 1),
+      'access arguments' => array('administer beans'),
+      'file' => 'devel.pages.inc',
+      'file path' => $devel_path,
+      'type' => MENU_LOCAL_TASK,
+      'weight' => 100,
+    );
+  }
+
   return $items;
 }
 
@@ -272,7 +301,6 @@ function bean_fetch_plugin_info($plugin = NULL) {
     }
     return $plugins[$plugin];
   }
-
 }
 
 /**
@@ -304,20 +332,39 @@ function bean_reset() {
 /**
  * Load a widget class
  *
- * @param $plugin key - the key fo the plugin
- * @return an object from the plugin
+ * @param $plugin_key string
+ *  the key fo the plugin
+ * @return BeanTypePluginInterface | Boolean
+ *  An instance of the bean class or FALSE if not loaded
  */
 function bean_load_plugin_class($plugin_key = NULL) {
   $cache = &drupal_static(__FUNCTION__);
 
   if (!isset($cache[$plugin_key])) {
     ctools_include('plugins');
-    if ($class = ctools_plugin_load_class('bean', 'types', $plugin_key, 'handler')) {
+    $class = ctools_plugin_load_class('bean', 'types', $plugin_key, 'handler');
+    if ($class && bean_check_plugin_class($class)) {
       $cache[$plugin_key] = new $class(bean_fetch_plugin_info($plugin_key));
     }
   }
 
   return isset($cache[$plugin_key]) ? $cache[$plugin_key] : FALSE;
+}
+
+/**
+ * Check the plugin type class
+ *
+ * @param $class string
+ *  The name of the bean type class
+ * @return Boolean
+ */
+function bean_check_plugin_class($class) {
+  $ref_class = new ReflectionClass($class);
+  if (in_array('BeanTypePluginInterface', $ref_class->getInterfaceNames())) {
+    return TRUE;
+  }
+
+  return FALSE;
 }
 
 /**
@@ -427,11 +474,11 @@ function bean_load_multiple($bids = array(), $conditions = array(), $reset = FAL
  */
 function bean_permission() {
   $perms = array(
-    'administer bean types' =>  array(
+    'administer bean types' => array(
       'title' => t('Administer block types'),
       'description' => t('Create and delete fields on beans, and set their permissions.'),
     ),
-    'administer beans' =>  array(
+    'administer beans' => array(
       'title' => t('Administer beans'),
       'description' => t('Edit and view all beans.'),
     ),
@@ -593,13 +640,27 @@ function bean_delete(Bean $bean) {
 /**
  * Helper to easily create a bean.
  *
- * @param $values
+ * @param $values array
  *   Array with the following keys:
  *   - "arguments" - Array with arguments that should be replaced on run time in
  *     the message type.
+ *
+ * @return Bean
  */
 function bean_create($values) {
   return entity_create('bean', $values);
+}
+
+/**
+ * View the Bean
+ */
+function bean_view(Bean $bean, $view_mode = 'default', $langcode = NULL) {
+  if (!isset($langcode)) {
+    $langcode = $GLOBALS['language_content']->language;
+  }
+
+  drupal_set_title($bean->label());
+  return $bean->view($view_mode, $langcode);
 }
 
 /**
@@ -681,11 +742,16 @@ function bean_ctools_plugin_type() {
       'defaults' => array(
         'abstract' => FALSE,
         'label' => t('Block'),
+        'description' => '',
         'cache_level' => DRUPAL_CACHE_PER_ROLE,
         // Editable in the block type UI
         // THESE should have 'bean_custom' as the class
         'editable' => FALSE,
         'view_mode' => 'default',
+        'handler' => array(
+          'class' => 'BeanDefault',
+          'parent' => 'bean'
+        ),
       ),
     ),
   );
