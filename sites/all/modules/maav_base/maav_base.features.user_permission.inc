@@ -14,7 +14,8 @@ function maav_base_user_default_permissions() {
   $permissions['access administration pages'] = array(
     'name' => 'access administration pages',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Web Team',
+      1 => 'administrator',
     ),
     'module' => 'system',
   );
@@ -63,7 +64,9 @@ function maav_base_user_default_permissions() {
   $permissions['access contextual links'] = array(
     'name' => 'access contextual links',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Team Lead',
+      1 => 'Web Team',
+      2 => 'administrator',
     ),
     'module' => 'contextual',
   );
@@ -90,7 +93,8 @@ function maav_base_user_default_permissions() {
   $permissions['access site in maintenance mode'] = array(
     'name' => 'access site in maintenance mode',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Web Team',
+      1 => 'administrator',
     ),
     'module' => 'system',
   );
@@ -99,7 +103,8 @@ function maav_base_user_default_permissions() {
   $permissions['access site reports'] = array(
     'name' => 'access site reports',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Web Team',
+      1 => 'administrator',
     ),
     'module' => 'system',
   );
@@ -127,7 +132,8 @@ function maav_base_user_default_permissions() {
   $permissions['administer actions'] = array(
     'name' => 'administer actions',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Web Team',
+      1 => 'administrator',
     ),
     'module' => 'system',
   );
@@ -136,7 +142,8 @@ function maav_base_user_default_permissions() {
   $permissions['administer blocks'] = array(
     'name' => 'administer blocks',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Web Team',
+      1 => 'administrator',
     ),
     'module' => 'block',
   );
@@ -244,7 +251,8 @@ function maav_base_user_default_permissions() {
   $permissions['administer site configuration'] = array(
     'name' => 'administer site configuration',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Web Team',
+      1 => 'administrator',
     ),
     'module' => 'system',
   );
@@ -271,7 +279,8 @@ function maav_base_user_default_permissions() {
   $permissions['administer themes'] = array(
     'name' => 'administer themes',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Web Team',
+      1 => 'administrator',
     ),
     'module' => 'system',
   );
@@ -289,7 +298,9 @@ function maav_base_user_default_permissions() {
   $permissions['administer users'] = array(
     'name' => 'administer users',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Team Lead',
+      1 => 'Web Team',
+      2 => 'administrator',
     ),
     'module' => 'user',
   );
@@ -349,6 +360,7 @@ function maav_base_user_default_permissions() {
       0 => 'Team Lead',
       1 => 'Web Team',
       2 => 'administrator',
+      3 => 'authenticated user',
     ),
     'module' => 'node',
   );
@@ -440,7 +452,9 @@ function maav_base_user_default_permissions() {
   $permissions['delete terms in 1'] = array(
     'name' => 'delete terms in 1',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Team Lead',
+      1 => 'Web Team',
+      2 => 'administrator',
     ),
     'module' => 'taxonomy',
   );
@@ -474,6 +488,7 @@ function maav_base_user_default_permissions() {
       0 => 'Team Lead',
       1 => 'Web Team',
       2 => 'administrator',
+      3 => 'authenticated user',
     ),
     'module' => 'node',
   );
@@ -503,7 +518,9 @@ function maav_base_user_default_permissions() {
   $permissions['edit terms in 1'] = array(
     'name' => 'edit terms in 1',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Team Lead',
+      1 => 'Web Team',
+      2 => 'administrator',
     ),
     'module' => 'taxonomy',
   );
@@ -553,7 +570,9 @@ function maav_base_user_default_permissions() {
   $permissions['select account cancellation method'] = array(
     'name' => 'select account cancellation method',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Team Lead',
+      1 => 'Web Team',
+      2 => 'administrator',
     ),
     'module' => 'user',
   );
@@ -637,7 +656,8 @@ function maav_base_user_default_permissions() {
   $permissions['view the administration theme'] = array(
     'name' => 'view the administration theme',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Web Team',
+      1 => 'administrator',
     ),
     'module' => 'system',
   );

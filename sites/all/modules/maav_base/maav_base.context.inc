@@ -26,9 +26,9 @@ function maav_base_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'menu-menu-sidebar-nav' => array(
-          'module' => 'menu',
-          'delta' => 'menu-sidebar-nav',
+        'menu_block-1' => array(
+          'module' => 'menu_block',
+          'delta' => 1,
           'region' => 'sidebar_first',
           'weight' => '-10',
         ),
@@ -36,6 +36,18 @@ function maav_base_context_default_contexts() {
           'module' => 'system',
           'delta' => 'main',
           'region' => 'content',
+          'weight' => '-10',
+        ),
+        'maav_login_block-maav_login' => array(
+          'module' => 'maav_login_block',
+          'delta' => 'maav_login',
+          'region' => 'header',
+          'weight' => '-10',
+        ),
+        'system-user-menu' => array(
+          'module' => 'system',
+          'delta' => 'user-menu',
+          'region' => 'header',
           'weight' => '-10',
         ),
       ),
