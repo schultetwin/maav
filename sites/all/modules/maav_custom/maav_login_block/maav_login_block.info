@@ -1,0 +1,4 @@
+name = MAAV Login Block
+description = "Adds custom Login link so that we can force users to ssl"
+package = "MAAV"
+core = 7.x
