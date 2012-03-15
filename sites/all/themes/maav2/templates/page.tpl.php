@@ -10,6 +10,7 @@
 
     <?php if ($site_name || $site_slogan): ?>
       <hgroup<?php if (!$site_slogan && $hide_site_name): ?> class="<?php print $visibility; ?>"<?php endif; ?>>
+        <?php print render($page['header']); ?>
         <?php if ($site_name): ?>
           <h1 id="site-name"<?php if ($hide_site_name): ?> class="<?php print $visibility; ?>"<?php endif; ?>><?php print $site_name; ?></h1>
         <?php endif; ?>
@@ -19,12 +20,11 @@
       </hgroup>
     <?php endif; ?>
 
-    <?php print render($page['header']); ?>
 
   </header>
 
-  <?php print render($page['menu_bar']); ?>
   <?php if ($primary_navigation): print $primary_navigation; endif; ?>
+  <?php print render($page['menu_bar']); ?>
   <?php if ($secondary_navigation): print $secondary_navigation; endif; ?>
 
   <div id="section-info"><?php print render($page['section_info']); ?></div>

@@ -28,7 +28,9 @@
   display: inline-block;
   margin: 0 auto;
 }
-#site-name {}
+#site-name {
+  clear: right;
+}
 #site-name a    {
   font-family: 'Lucida Console', Monaco, monospace;
   color: black;
@@ -48,7 +50,9 @@ h1#page-title {}
 
 /* Regions */
 .region-leaderboard {}
-.region-header {}
+.region-header {
+  float: right;  
+}
 .region-secondary-content {}
 .region-highlighted {}
 .region-content-aside {}
