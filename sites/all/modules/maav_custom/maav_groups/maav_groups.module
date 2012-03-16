@@ -17,7 +17,7 @@ function maav_groups_og_context_negotiation_info() {
 
 function maav_groups_og_context_handler() {
   $gids = array();
-  if (arg(0) == 'subteam' && is_numeric(arg(1)) {
+  if (arg(0) == 'subteam' && is_numeric(arg(1))) {
     $gids[] = arg(1);
   }
   return $gids;
@@ -39,7 +39,7 @@ function maav_groups_block_info() {
 
 /**
  * Implementation of hook_block_view().
- */
+ *
 function maav_groups_block_view($delta = '') {
   $block = array();
   $group = og_context();
@@ -51,9 +51,9 @@ function maav_groups_block_view($delta = '') {
         $menu = array();
         $links[] = array(
           '#title' => 'View Group Members',
-          '#href' => 'subteam/' . $gid . '/members',
+          '#href' => 'subteam/members',
           '#attributes' => array(),
-          '#localized_options' => array(),
+          '#localized_options' => array()
         );
 
         foreach ($links as $link) {
@@ -64,7 +64,7 @@ function maav_groups_block_view($delta = '') {
         $block['content'] = $menu;
         break;
     }
-    return $block;
   }
+  return $block;
 }
-
+*/
