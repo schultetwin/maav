@@ -39,7 +39,7 @@ function maav_groups_block_info() {
 
 /**
  * Implementation of hook_block_view().
- *
+ */
 function maav_groups_block_view($delta = '') {
   $block = array();
   $group = og_context();
@@ -50,16 +50,18 @@ function maav_groups_block_view($delta = '') {
         $links = array();
         $menu = array();
         $links[] = array(
+          '#below' => FALSE,
           '#title' => 'View Group Members',
-          '#href' => 'subteam/members',
+          '#href' => 'subteam/' . $group->gid . '/members',
           '#attributes' => array(),
           '#localized_options' => array()
         );
 
         foreach ($links as $link) {
-          $menu[] = theme('menu_link', array($link));
+          $menu[] = theme('menu_link', array('element' => $link));
         }
-        $menu = implode('', $menu);
+        $menu = implode($menu);
+        $menu = array('tree' => array ( '#children' => $menu));
         $menu = theme('menu_tree', $menu);
         $block['content'] = $menu;
         break;
@@ -67,4 +69,3 @@ function maav_groups_block_view($delta = '') {
   }
   return $block;
 }
-*/
