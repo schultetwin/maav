@@ -1,6 +1,70 @@
 <?php
 
 /**
+ * Implementation of hook_groups_og_context_negotiation_info().
+ */
+function maav_groups_og_context_negotiation_info() {
+  $providers = array();
+
+  $providers['maav_groups'] = array(
+    'name' => t('MAAV Groups'),
+    'description' => t("Determine context by checking if path contains subteam."),
+    'callback' => 'maav_groups_og_context_handler',
+  );
+
+  return $providers;
+}
+
+function maav_groups_og_context_handler() {
+  $gids = array();
+  if (arg(0) == 'subteam' && is_numeric(arg(1)) {
+    $gids[] = arg(1);
+  }
+  return $gids;
+}
+
+
+/**
  * Implementation of hook_block_info().
  */
+function maav_groups_block_info() {
+  $blocks = array();
+  $blocks['maav_group_menu'] = array(
+    'info' => t('MAAV Groups Block'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implementation of hook_block_view().
+ */
+function maav_groups_block_view($delta = '') {
+  $block = array();
+  $group = og_context();
+  if ($group) {
+
+    switch($delta) {
+      case 'maav_group_menu':
+        $links = array();
+        $menu = array();
+        $links[] = array(
+          '#title' => 'View Group Members',
+          '#href' => 'subteam/' . $gid . '/members',
+          '#attributes' => array(),
+          '#localized_options' => array(),
+        );
+
+        foreach ($links as $link) {
+          $menu[] = theme('menu_link', array($link));
+        }
+        $menu = implode('', $menu);
+        $menu = theme('menu_tree', $menu);
+        $block['content'] = $menu;
+        break;
+    }
+    return $block;
+  }
+}
 

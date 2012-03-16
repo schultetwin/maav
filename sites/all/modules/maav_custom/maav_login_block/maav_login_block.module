@@ -28,7 +28,7 @@ function maav_login_block_block_view($delta = '') {
   return $block;
 }
 
-function maav_login_block_view_alter(&$data, $block) {
+function maav_login_block_block_view_alter(&$data, $block) {
   if ($block->module == 'system' && $block->delta == 'user-menu') {
     $data['subject'] = '';
   }
