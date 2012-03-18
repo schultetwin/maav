@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the MAAV Sponsors feature.
+ */
+
+include_once('maav_sponsors.features.inc');
