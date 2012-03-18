@@ -68,12 +68,13 @@ h1#page-title {}
 /* Sidebars */
 .sidebar {}
 .region-sidebar-first {
-    background:none repeat scroll 0 0 #D6D6D6;
+    background-image: url("images/bg/sidebar_bg.png");
     margin-left:-100%;
-    filter:alpha(opacity=60);
+    /*filter:alpha(opacity=60);
     -moz-opacity: 0.6;
     -khtml-opacity: 0.6;
     opacity:0.6;
+    */
     width:225px;
 }
 .region-sidebar-first ul li.leaf {
