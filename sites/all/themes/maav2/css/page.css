@@ -70,6 +70,9 @@ h1#page-title {}
 .region-sidebar-first {
     background:none repeat scroll 0 0 #D6D6D6;
     margin-left:-100%;
+    filter:alpha(opacity=60);
+    -moz-opacity: 0.6;
+    -khtml-opacity: 0.6;
     opacity:0.6;
     width:225px;
 }
