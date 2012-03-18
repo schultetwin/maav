@@ -51,6 +51,13 @@ function maav_groups_block_view($delta = '') {
         $menu = array();
         $links[] = array(
           '#below' => FALSE,
+          '#title' => t('Group Home'),
+          '#href' => 'node/' . $group->etid,
+          '#attributes' => array(),
+          '#localized_options' => array(),
+        );
+        $links[] = array(
+          '#below' => FALSE,
           '#title' => 'View Group Members',
           '#href' => 'subteam/' . $group->gid . '/members',
           '#attributes' => array(),
