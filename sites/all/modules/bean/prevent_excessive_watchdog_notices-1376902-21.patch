@@ -1,0 +1,33 @@
+diff --git a/bean.module b/bean.module
+index 9d5a90d..88478f1 100644
+--- a/bean.module
++++ b/bean.module
+@@ -752,7 +752,9 @@ function bean_ctools_plugin_type() {
+         'view_mode' => 'default',
+         'handler' => array(
+           'class' => 'BeanDefault',
+-          'parent' => 'bean'
++          'parent' => 'bean',
++          'file' => 'base.inc',
++          'path' => drupal_get_path('module', 'bean') . '/plugins',
+         ),
+       ),
+     ),
+@@ -768,6 +770,8 @@ function bean_bean_types() {
+   $plugins['bean'] = array(
+     'handler' => array(
+       'class' => 'BeanPlugin',
++      'file' => 'base.inc',
++      'path' => drupal_get_path('module', 'bean') . '/plugins',
+     ),
+   );
+ 
+@@ -776,6 +780,8 @@ function bean_bean_types() {
+     'handler' => array(
+       'class' => 'BeanDefault',
+       'parent' => 'bean',
++      'file' => 'base.inc',
++      'path' => drupal_get_path('module', 'bean') . '/plugins',
+     ),
+   );
+ 
