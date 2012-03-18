@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the MAAV About feature.
+ */
+
+include_once('maav_about.features.inc');
