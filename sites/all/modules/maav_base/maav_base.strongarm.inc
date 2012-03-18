@@ -85,8 +85,10 @@ function maav_base_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'menu_options_page';
   $strongarm->value = array(
-    0 => 'main-menu',
-    1 => 'menu-sidebar-nav',
+    0 => 'menu-about-menu',
+    1 => 'main-menu',
+    2 => 'menu-media-menu',
+    3 => 'menu-sidebar-nav',
   );
   $export['menu_options_page'] = $strongarm;
 
