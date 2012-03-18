@@ -10,6 +10,15 @@
 function maav_media_user_default_permissions() {
   $permissions = array();
 
+  // Exported permission: add media from remote sources
+  $permissions['add media from remote sources'] = array(
+    'name' => 'add media from remote sources',
+    'roles' => array(
+      0 => 'administrator',
+    ),
+    'module' => 'media_internet',
+  );
+
   // Exported permission: administer image styles
   $permissions['administer image styles'] = array(
     'name' => 'administer image styles',
