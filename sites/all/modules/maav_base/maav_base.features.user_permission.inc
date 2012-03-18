@@ -138,6 +138,24 @@ function maav_base_user_default_permissions() {
     'module' => 'system',
   );
 
+  // Exported permission: administer bean types
+  $permissions['administer bean types'] = array(
+    'name' => 'administer bean types',
+    'roles' => array(
+      0 => 'administrator',
+    ),
+    'module' => 'bean',
+  );
+
+  // Exported permission: administer beans
+  $permissions['administer beans'] = array(
+    'name' => 'administer beans',
+    'roles' => array(
+      0 => 'administrator',
+    ),
+    'module' => 'bean',
+  );
+
   // Exported permission: administer blocks
   $permissions['administer blocks'] = array(
     'name' => 'administer blocks',
@@ -220,6 +238,15 @@ function maav_base_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: administer pathauto
+  $permissions['administer pathauto'] = array(
+    'name' => 'administer pathauto',
+    'roles' => array(
+      0 => 'administrator',
+    ),
+    'module' => 'pathauto',
+  );
+
   // Exported permission: administer permissions
   $permissions['administer permissions'] = array(
     'name' => 'administer permissions',
@@ -227,6 +254,15 @@ function maav_base_user_default_permissions() {
       0 => 'administrator',
     ),
     'module' => 'user',
+  );
+
+  // Exported permission: administer realname
+  $permissions['administer realname'] = array(
+    'name' => 'administer realname',
+    'roles' => array(
+      0 => 'administrator',
+    ),
+    'module' => 'realname',
   );
 
   // Exported permission: administer search
@@ -481,6 +517,15 @@ function maav_base_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: edit bean view mode
+  $permissions['edit bean view mode'] = array(
+    'name' => 'edit bean view mode',
+    'roles' => array(
+      0 => 'administrator',
+    ),
+    'module' => 'bean',
+  );
+
   // Exported permission: edit own article content
   $permissions['edit own article content'] = array(
     'name' => 'edit own article content',
@@ -532,6 +577,15 @@ function maav_base_user_default_permissions() {
       0 => 'administrator',
     ),
     'module' => 'features',
+  );
+
+  // Exported permission: notify of path changes
+  $permissions['notify of path changes'] = array(
+    'name' => 'notify of path changes',
+    'roles' => array(
+      0 => 'administrator',
+    ),
+    'module' => 'pathauto',
   );
 
   // Exported permission: post comments

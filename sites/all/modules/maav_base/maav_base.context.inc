@@ -13,6 +13,44 @@ function maav_base_context_default_contexts() {
   $context = new stdClass;
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'home_section';
+  $context->description = '';
+  $context->tag = 'MAAV';
+  $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        '<front>' => '<front>',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'views-front_page_picture-block' => array(
+          'module' => 'views',
+          'delta' => 'front_page_picture-block',
+          'region' => 'sidebar_first',
+          'weight' => '-10',
+        ),
+        'bean-section-info-home' => array(
+          'module' => 'bean',
+          'delta' => 'section-info-home',
+          'region' => 'section_info',
+          'weight' => '-10',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('MAAV');
+  $export['home_section'] = $context;
+
+  $context = new stdClass;
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'maav_sitewide';
   $context->description = 'Base Theme for global theme';
   $context->tag = 'base';

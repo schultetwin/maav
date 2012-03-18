@@ -23,6 +23,16 @@ function maav_base_ctools_plugin_api() {
 }
 
 /**
+ * Implements hook_views_api().
+ */
+function maav_base_views_api() {
+  list($module, $api) = func_get_args();
+  if ($module == "views" && $api == "views_default") {
+    return array("version" => "3.0");
+  }
+}
+
+/**
  * Implements hook_node_info().
  */
 function maav_base_node_info() {
