@@ -28,4 +28,8 @@ function maav_um_boot() {
       dl('ldap.so');
     }
   }
+  //if (file_exists('/afs/umich.edu/group/m/maav/AddTrustExternalCARoot.crt')) {
+  //  putenv('LDAPTLS_CACERT=/afs/umich.edu/group/m/maav/AddTrustExternalCARoot.crt');
+  //}
+  putenv('LDAPTLS_REQCERT=never');
 }
