@@ -97,7 +97,6 @@ function ldap_authorization_og_get_group($value, $value_type = 'group_name', $re
       }
     }
   }
- // debug("ldap_authorization_og_get_group:"); debug($group);
 
   if ($return == 'object' && is_object($group) && is_object($node)) {
     return array($group, $node);
@@ -145,10 +144,10 @@ function ldap_authorization_og_rid_from_role_name($role_name) {
  * implements hook_form_alter()
  */
 function ldap_authorization_og_form_ldap_authorization_admin_form_alter(&$form, $form_state) {
-  $form['filter_and_mappings']['use_filter']['#type'] = 'hidden';
+  if ($form['status']['consumer_type']['#value'] == 'og_group') {
+    $form['filter_and_mappings']['use_filter']['#type'] = 'hidden';
+  }
 }
-
-
 
 
 
