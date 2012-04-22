@@ -19,8 +19,8 @@ function bean_admin_ui_schema() {
       'api' => array(
         'owner' => 'bean_admin_ui',
         'api' => 'bean',
-        'minimum_version' => 3,
-        'current_version' => 3,
+        'minimum_version' => bean_min_version(),
+        'current_version' => bean_current_version(),
       ),
     ),
     'fields' => array(

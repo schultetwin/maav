@@ -76,9 +76,16 @@ abstract class BeanPlugin implements BeanTypePluginInterface {
   }
 
   /**
-   * THe plugin submit function
+   * THe plugin validation function
    */
   public function validate($values, &$form_state) {}
+
+  /**
+   * React to the saving of the bean
+   */
+  public function submit(Bean $bean) {
+    return $this;
+  }
 
   /**
    * Return the block content.

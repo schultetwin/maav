@@ -103,6 +103,7 @@ class LdapAuthorizationConsumerOG extends LdapAuthorizationConsumerAbstract {
 				$mappings[$i][1] = FALSE;
 			}
 		}
+    //debug("normalizedMappings"); debug($mappings);
 		return $mappings;
 
 	}
@@ -162,7 +163,7 @@ class LdapAuthorizationConsumerOG extends LdapAuthorizationConsumerAbstract {
   */
 
   public function revokeSingleAuthorization(&$user, $authorization_id, &$user_auth_data) {
-
+   // debug('revokeSingleAuthorization(), authorization_id='. $authorization_id); debug($authorization_id);
 		list($gid, $rid) = @explode('-', $authorization_id);
 
 		// CASE 1: Bad Parameters
@@ -219,7 +220,7 @@ class LdapAuthorizationConsumerOG extends LdapAuthorizationConsumerAbstract {
    * @return TRUE if granted or grant exists, FALSE if not grantable or failed.
    */
   public function grantSingleAuthorization(&$user, $authorization_id, &$user_auth_data) {
-
+   //debug('revokeSingleAuthorization(), authorization_id='. $authorization_id); debug($authorization_id);
     $result = FALSE;
     $watchdog_tokens =  array('%authorization_id' => $authorization_id, '%username' => $user->name);
 		if ($this->detailedWatchdogLog) {

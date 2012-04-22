@@ -107,6 +107,15 @@ interface BeanTypePluginInterface {
   public function validate($values, &$form_state);
 
   /**
+   * React to a bean being saved
+   *
+   * @abstract
+   *
+   * @param Bean $bean
+   */
+  public function submit(Bean $bean);
+
+  /**
    * Return the block content.
    *
    * @abstract
@@ -323,6 +332,8 @@ class Bean extends Entity {
         } while (bean_load_delta($this->delta));
       }
     }
+
+    $this->plugin->submit($this);
 
     $return = parent::save();
     block_flush_caches();

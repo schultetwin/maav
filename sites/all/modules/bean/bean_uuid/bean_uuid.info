@@ -1,0 +1,13 @@
+name = Bean UUID
+description = Allow deploying bean blocks through Deploy and UUID modules. 
+core = 7.x
+
+dependencies[] = bean
+dependencies[] = uuid
+
+; Information added by drupal.org packaging script on 2012-04-18
+version = "7.x-1.0-rc4"
+core = "7.x"
+project = "bean"
+datestamp = "1334791293"
+

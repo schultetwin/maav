@@ -14,7 +14,15 @@ function media_vimeo_file_formatter_info() {
     'default settings' => array(
       'width' => media_vimeo_variable_get('width'),
       'height' => media_vimeo_variable_get('height'),
+      'preview_uri' => media_vimeo_variable_get('preview_uri'),
+      'api' => media_vimeo_variable_get('api'),
       'autoplay' => media_vimeo_variable_get('autoplay'),
+      'byline' => media_vimeo_variable_get('byline'),
+      'color' => media_vimeo_variable_get('color'),
+      'fullscreen' => media_vimeo_variable_get('fullscreen'),
+      'loop' => media_vimeo_variable_get('loop'),
+      'portrait' => media_vimeo_variable_get('portrait'),
+      'title' => media_vimeo_variable_get('title'),
     ),
     'view callback' => 'media_vimeo_file_formatter_video_view',
     'settings callback' => 'media_vimeo_file_formatter_video_settings',
@@ -42,7 +50,8 @@ function media_vimeo_file_formatter_video_view($file, $display, $langcode) {
       '#theme' => 'media_vimeo_video',
       '#uri' => $file->uri,
     );
-    foreach (array('width', 'height', 'autoplay') as $setting) {
+    $settings = array('width', 'height', 'api' , 'autoplay', 'byline', 'color', 'fullscreen', 'loop', 'portrait', 'title');
+    foreach ($settings as $setting) {
       $element['#' . $setting] = isset($file->override[$setting]) ? $file->override[$setting] : $display['settings'][$setting];
     }
     return $element;
@@ -65,10 +74,46 @@ function media_vimeo_file_formatter_video_settings($form, &$form_state, $setting
     '#default_value' => $settings['height'],
   );
   $element['autoplay'] = array(
-    '#title' => t('Autoplay'),
+    '#title' => t('Play the video automatically on load'),
     '#type' => 'checkbox',
     '#default_value' => $settings['autoplay'],
   );
+  $element['loop'] = array(
+    '#title' => t('Play the video again when it reaches the end'),
+    '#type' => 'checkbox',
+    '#default_value' => $settings['loop'],
+  );
+  $element['fullscreen'] = array(
+    '#title' => t('Allow the player to go into fullscreen'),
+    '#type' => 'checkbox',
+    '#default_value' => $settings['fullscreen'],
+  );
+  $element['api'] = array(
+    '#title' => t('Enable the Javascript API'),
+    '#type' => 'checkbox',
+    '#default_value' => $settings['api'],
+  );
+  $element['color'] = array(
+    '#title' => t('Specify the color of the video controls'),
+    '#type' => 'textfield',
+    '#default_value' => $settings['color'],
+  );
+  $element['portrait'] = array(
+    '#title' => t("Show the user's portrait on the video"),
+    '#type' => 'checkbox',
+    '#default_value' => $settings['portrait'],
+  );
+  $element['title'] = array(
+    '#title' => t('Show the title on the video'),
+    '#type' => 'checkbox',
+    '#default_value' => $settings['title'],
+  );
+  $element['byline'] = array(
+    '#title' => t('Show the byline on the video'),
+    '#type' => 'checkbox',
+    '#default_value' => $settings['byline'],
+  );
+
   return $element;
 }
 

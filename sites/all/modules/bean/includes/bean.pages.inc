@@ -9,6 +9,8 @@
  * Edit bean page callback
  */
 function bean_edit(Bean $bean) {
+  $type = bean_fetch_plugin_info($bean->type);
+  drupal_set_title(t('<em>Edit @type</em> @title', array('@type' => $type['label'], '@title' => $bean->label)), PASS_THROUGH);
   return drupal_get_form('bean_form', $bean);
 }
 
@@ -17,6 +19,8 @@ function bean_edit(Bean $bean) {
  */
 function bean_add($type) {
   $bean = bean_create(array('type' => $type));
+  $bean_type = bean_type_load($type);
+  drupal_set_title(t('Create @type block', array('@type' => $bean_type->getLabel())), PASS_THROUGH);
 
   return drupal_get_form('bean_form', $bean, $type);
 }
@@ -111,10 +115,18 @@ function bean_list() {
     );
   }
 
-  $bean_filter_form = drupal_get_form('bean_filter_form');
-  $output = drupal_render($bean_filter_form);
-  $output .= theme('table', array('header' => $header, 'rows' => $rows));
-  $output .= theme('pager');
+  $output = array(
+    'bean_filter_form' => drupal_get_form('bean_filter_form'),
+    'bean_content' => array(
+      '#theme' => 'table',
+      '#header' => $header,
+      '#rows' => $rows,
+      '#empty' => t('There are no Block Available'),
+    ),
+    'pager' => array(
+      '#theme' => 'pager',
+    ),
+  );
 
   return $output;
 }
@@ -130,7 +142,6 @@ function bean_list() {
  */
 function theme_bean_add_list($variables) {
   $content = $variables['content'];
-  $output = '';
   $blocks = array();
   $i = 0;
 
@@ -386,7 +397,7 @@ function bean_filter_form($form, &$form_state) {
   foreach (bean_get_types() as $type) {
     $type_options[$type->type] = $type->getLabel();
   }
-  sort($type_options);
+  asort($type_options);
 
   $form['filters']['types'] = array(
     '#type' => 'select',

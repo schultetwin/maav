@@ -6,9 +6,9 @@ dependencies[] = bean
 files[] = plugins/custom.inc
 files[] = includes/features.inc
 configure = admin/structure/block-types
-; Information added by drupal.org packaging script on 2012-02-18
-version = "7.x-1.0-rc1"
+; Information added by drupal.org packaging script on 2012-04-18
+version = "7.x-1.0-rc4"
 core = "7.x"
 project = "bean"
-datestamp = "1329531338"
+datestamp = "1334791293"
 

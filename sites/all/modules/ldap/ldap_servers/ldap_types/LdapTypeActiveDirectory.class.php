@@ -18,13 +18,16 @@ class LdapTypeActiveDirectory extends LdapTypeAbstract {
   public $encrypted = 0;
   public $user_attr = 'sAMAccountName';
   public $mail_attr = 'mail';
+  public $supportsNestGroups = FALSE;
+  // other ldap implementation specific properties and their default values
 
-  public $groupObjectClassDefault = 'group';
 
-  public $groupDerivationModelDefault = LDAP_SERVERS_DERIVE_GROUP_FROM_ATTRIBUTE;
-
-  public $groupDeriveFromAttributeNameDefault = 'memberOf';
-  public $groupDeriveFromAttrDnAttrDefault = 'distinguishedname';
+  public function getNestedGroupMemberships($user_ldap_entry, $nested = FALSE) {
+    if (!$this->supportsNestedGroups) {
+      return FALSE;
+    }
+    // code for nested memebership would go here
+  }
 
 
   // other ldap implementation specific methods

@@ -1,7 +1,27 @@
-Current API VERSION: 4.
+Current API VERSION: 5.
 
 bean 7.x-1.x-dev
 ================
+Issue #1510508: Added Integrate with Workbench.
+Issue #1503270 by Denes.Szabo|indytechcook:
+  Added Block list displays the filter form when have not defined a bean type yet.
+Add Bean All Module
+- API Change: Add a BeanPlugin::Submit
+  - This change is passive and previous versions of API will still work
+
+bean 7.x-1.0-rc3
+================
+Fixed issue with bean type filter at admin/content/blocks
+Issue #1452368 by Denes.Szabo: Fixed Empty description not handled.
+Issue #1458298 by tim.cosgrove: Fixed Implementation of Contextual Links for Beans
+  causes block to appear even with content is otherwise empty.
+Issue #1376902 by willvincent: Fixed Plugin container of plugin type bean:types points to nonexistent file.
+Issue #1354824 by willvincent | mrfelton: Fixed Unable to add fields to newly created bean type.
+Fix coding standards and use the correct scope in functions
+
+bean 7.x-1.0-rc2
+================
+DO NOT USE
 
 bean 7.x-1.0-rc1
 ================
